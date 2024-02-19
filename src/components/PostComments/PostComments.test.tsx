@@ -11,8 +11,11 @@ describe('Teste para o componente PostComments', () => {
     render(<PostComments />);
 
     const commentInput = screen.getByTestId('comment-input');
+
     fireEvent.change(commentInput, { target: { value: 'Primeiro comentário' } });
+
     const submitButton = screen.getByTestId('submit-button');
+
     fireEvent.click(submitButton);
 
     await waitFor(() => {
@@ -20,6 +23,7 @@ describe('Teste para o componente PostComments', () => {
     });
 
     fireEvent.change(commentInput, { target: { value: 'Segundo comentário' } });
+
     fireEvent.click(submitButton);
 
     await waitFor(() => {
